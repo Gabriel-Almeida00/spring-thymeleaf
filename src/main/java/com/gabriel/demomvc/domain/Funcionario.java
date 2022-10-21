@@ -20,7 +20,7 @@ public class Funcionario extends AbstractEntity<Long>{
     @Column(name = "data_saida",  columnDefinition = "DATE")
     private LocalDate dataSaida;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id_fk")
     private Endereco endereco;
 
