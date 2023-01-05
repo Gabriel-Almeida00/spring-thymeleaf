@@ -12,7 +12,7 @@ import java.util.List;
 public class CargoServiceImpl implements CargoService{
 
     @Autowired
-    private CargoDao dao;
+    public CargoDao dao;
 
     @Override
     public void salvar(Cargo cargo) {
