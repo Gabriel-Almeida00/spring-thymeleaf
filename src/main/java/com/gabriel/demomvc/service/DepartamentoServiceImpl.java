@@ -37,6 +37,6 @@ public class DepartamentoServiceImpl implements DepartamentoService{
 
     @Override  @Transactional(readOnly = true)
     public List<Departamento> buscarTodos() {
-        return dao.fndAll();
+        return dao.findAll();
     }
 }

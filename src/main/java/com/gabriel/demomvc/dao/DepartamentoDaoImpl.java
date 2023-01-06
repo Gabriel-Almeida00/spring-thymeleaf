@@ -9,9 +9,4 @@ import java.util.List;
 @Repository
 public  class DepartamentoDaoImpl extends AbstractDao<Departamento, Long> implements DepartamentoDao{
 
-
-    @Override
-    public List<Departamento> fndAll() {
-        return null;
-    }
 }

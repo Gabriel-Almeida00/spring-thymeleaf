@@ -10,5 +10,5 @@ public interface CargoDao {
     void update (Cargo cargo);
     void delete (Long id);
     Cargo findById (Long id);
-    List<Cargo> fndAll();
+    List<Cargo> findAll();
 }
