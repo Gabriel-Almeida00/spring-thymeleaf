@@ -35,7 +35,7 @@ public class DepartamentoController {
     }
 
     @GetMapping("/editar/{id}")
-    public String preEditar(@PathVariable ("id") Long id,ModelMap model) {
+    public String preEditar(@PathVariable("id") Long id, ModelMap model) {
     model.addAttribute("departamento",service.buscarPorId(id));
     return "/departamento/cadastro";
     }
