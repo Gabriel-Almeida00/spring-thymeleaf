@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/departamentos")
@@ -29,27 +30,33 @@ public class DepartamentoController {
     }
 
     @PostMapping("/salvar")
-    public String Salvar(Departamento departamento) {
+    public String Salvar(Departamento departamento, RedirectAttributes attr) {
         service.salvar(departamento);
+        attr.addFlashAttribute("success","Departamento inserido com sucesso");
         return "redirect:/departamentos/cadastrar";
     }
 
     @GetMapping("/editar/{id}")
     public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-    model.addAttribute("departamento",service.buscarPorId(id));
-    return "/departamento/cadastro";
+        model.addAttribute("departamento", service.buscarPorId(id));
+        return "/departamento/cadastro";
     }
 
     @PostMapping("/editar")
-    public String editar(Departamento departamento){
-    service.editar(departamento);
-    return "redirect:/departamentos/cadastrar";
+    public String editar(Departamento departamento, RedirectAttributes attr) {
+        service.editar(departamento);
+        attr.addFlashAttribute("success","Departamento editado com sucesso");
+        return "redirect:/departamentos/cadastrar";
     }
+
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable("id") Long id, ModelMap model){
-    if(!service.departamentoTemCargos(id)){
-        service.excluir(id);
-    }
-     return listar(model);
+    public String excluir(@PathVariable("id") Long id, ModelMap model) {
+        if (service.departamentoTemCargos(id)) {
+            model.addAttribute("fail", "Departamento não removido. Possui cargos vinculados");
+        } else {
+            service.excluir(id);
+            model.addAttribute("success", "Departamento  excluido com sucesso");
+        }
+        return listar(model);
     }
 }
