@@ -37,7 +37,7 @@ public class CargoController {
     @PostMapping("/salvar")
     public String salvar(Cargo cargo, RedirectAttributes attr){
         cargoService.salvar(cargo);
-        attr.addFlashAttribute("Success","Cargo inserido com sucesso");
+        attr.addFlashAttribute("success","Cargo inserido com sucesso");
         return "redirect:/cargos/cadastrar";
     }
     @ModelAttribute("departamentos")
