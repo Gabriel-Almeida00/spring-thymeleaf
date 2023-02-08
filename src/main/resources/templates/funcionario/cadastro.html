@@ -120,7 +120,7 @@
                     <label for="uf">UF</label>
                     <select id="uf" class="form-control" th:field="*{endereco.uf}">
                         <option value="">Selecione...</option>
-                        <option th:each="uf : &{ufs}" th:value="${uf}" th:text="${uf.sigla}"></option>
+                        <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.sigla}"></option>
                     </select>
                     <div class="invalid-feedback">
 
@@ -140,5 +140,6 @@
         </form>
     </div>
 </section>
+
 </body>
 </html>		
