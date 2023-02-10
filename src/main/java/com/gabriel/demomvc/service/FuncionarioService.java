@@ -2,6 +2,7 @@ package com.gabriel.demomvc.service;
 
 import com.gabriel.demomvc.domain.Funcionario;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface FuncionarioService {
@@ -13,4 +14,5 @@ public interface FuncionarioService {
     List<Funcionario> buscarTodos();
     List<Funcionario> buscarPorNomes(String nome);
     List<Funcionario> buscarPorCargos(Long id);
+    List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida);
 }
