@@ -11,5 +11,5 @@ public interface FuncionarioService {
     void excluir(Long id);
     Funcionario buscarPorId(Long id);
     List<Funcionario> buscarTodos();
-
+    List<Funcionario> buscarPorNomes(String nome);
 }

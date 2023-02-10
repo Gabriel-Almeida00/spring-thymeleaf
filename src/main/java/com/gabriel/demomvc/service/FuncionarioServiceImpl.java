@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = false)
+@Transactional(readOnly = true)
 public class FuncionarioServiceImpl implements FuncionarioService{
 
     @Autowired
@@ -38,5 +38,9 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     @Override @Transactional(readOnly = true)
     public List<Funcionario> buscarTodos() {
         return dao.findAll();
+    }
+    @Override
+    public List<Funcionario> buscarPorNomes(String nome) {
+        return dao.findByNome(nome);
     }
 }
