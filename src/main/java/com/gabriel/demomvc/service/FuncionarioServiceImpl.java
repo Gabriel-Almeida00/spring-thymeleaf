@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public class FuncionarioServiceImpl implements FuncionarioService{
 
     @Autowired
