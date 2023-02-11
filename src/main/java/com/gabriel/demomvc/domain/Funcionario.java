@@ -35,7 +35,7 @@ public class Funcionario extends AbstractEntity<Long>{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id_fk")
     private Endereco endereco;
-    @NotNull(message = "{NotNull.funcionaro.cargo}")
+    @NotNull(message = "{NotNull.funcionario.cargo}")
     @ManyToOne
     @JoinColumn(name = "cargo_id_fk")
     private Cargo cargo;
