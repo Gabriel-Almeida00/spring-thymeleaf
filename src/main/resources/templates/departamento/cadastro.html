@@ -8,15 +8,16 @@
 <body>
 
 <section class="layout-content" layout:fragment="corpo">
+
     <nav class="navbar navbar-expand-md bg-light">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <i class="oi oi-caret-right"></i>
-                    <span>Cadastrar Departamento</span>
+                    <span>Cadastrar Departamentos</span>
                 </li>
             </ul>
-            <a class="btn btn-primary btn-md" href="/departamentos/listar" role="button">
+            <a class="btn btn-primary btn-md" th:href="@{/departamentos/listar}" role="button">
                 <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
                 <span>Listar Departamentos</span>
             </a>
@@ -34,7 +35,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="nome">Departamentos</label>
+                    <label for="nome">Departamento</label>
                     <input type="text" class="form-control" id="nome"
                            placeholder="Nome Departamento" autofocus="autofocus" th:field="*{nome}"/>
                 </div>
@@ -44,6 +45,5 @@
         </form>
     </div>
 </section>
-
 </body>
 </html>

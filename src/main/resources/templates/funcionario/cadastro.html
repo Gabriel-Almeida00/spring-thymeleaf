@@ -18,14 +18,15 @@
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-primary btn-md" href="/funcionarios/listar" role="button">
+            <a class="btn btn-primary btn-md" th:href="@{/funcionarios/listar}" role="button">
                 <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
-                <span>Listar Funcionário</span>
+                <span>Listar Funcionários</span>
             </a>
         </nav>
     </div>
 
     <div class="container" id="cadastro">
+
         <div th:replace="fragments/alert"></div>
 
         <form th:action="${funcionario.id == null} ? @{/funcionarios/salvar} : @{/funcionarios/editar}"
@@ -35,7 +36,7 @@
                     <label for="nome">Nome do Funcionário</label>
                     <input type="text" class="form-control" id="nome" placeholder="Nome Completo"
                            autofocus="autofocus" th:field="*{nome}"
-                           th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'"/>
+                           th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
                         <span th:errors="*{nome}"></span>
                     </div>
@@ -44,7 +45,7 @@
                     <label for="salario">Salário Bruto</label>
                     <input type="text" class="form-control" id="salario" data-mask="#.##0,00"
                            data-mask-reverse="true" th:field="*{salario}"
-                           th:classappend="${#fields.hasErrors('salario')} ? 'is-invalid'"/>
+                           th:classappend="${#fields.hasErrors('salario')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
                         <span th:errors="*{salario}"></span>
                     </div>
@@ -54,7 +55,7 @@
                 <div class="form-group col-md-6">
                     <label for="dataEntrada">Data de Entrada</label>
                     <input type="date" class="form-control" id="dataEntrada" th:field="*{dataEntrada}"
-                           th:classappend="${#fields.hasErrors('dataEntrada')} ? 'is-invalid'"/>
+                           th:classappend="${#fields.hasErrors('dataEntrada')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
                         <span th:errors="*{dataEntrada}"></span>
                     </div>
@@ -62,7 +63,7 @@
                 <div class="form-group col-md-6">
                     <label for="dataSaida">Data de Saída</label>
                     <input type="date" class="form-control" id="dataSaida" th:field="*{dataSaida}"
-                           th:classappend="${#fields.hasErrors('dataSaida')} ? 'is-invalid'"/>
+                           th:classappend="${#fields.hasErrors('dataSaida')} ? 'is-invalid'" />
                     <div class="invalid-feedback">
                         <span th:errors="*{dataSaida}"></span>
                     </div>
@@ -87,13 +88,13 @@
                     <input type="text" class="form-control" id="cidade" th:field="*{endereco.cidade}"
                            th:classappend="${#fields.hasErrors('endereco.cidade')} ? 'is-invalid'"/>
                     <div class="invalid-feedback">
-                        <span th:errors="*{endereco.cidade}"></span>
+                        <span th:errors="*{endereco.cidade}" ></span>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="logradouro">Logradouro</label>
-                    <input type="text" class="form-control" id="logradouro" placeholder="logradouro sem número"
-                           th:field="*{endereco.logradouro}"
+                    <input type="text" class="form-control" id="logradouro"
+                           placeholder="logradouro sem número" th:field="*{endereco.logradouro}"
                            th:classappend="${#fields.hasErrors('endereco.logradouro')} ? 'is-invalid'"/>
                     <div class="invalid-feedback">
                         <span th:errors="*{endereco.logradouro}"></span>
@@ -111,8 +112,8 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control" id="complemento" placeholder="fundos, casa, AP. 102, .."
-                           th:field="*{endereco.complemento}"
+                    <input type="text" class="form-control" id="complemento"
+                           placeholder="fundos, casa, AP. 102, .." th:field="*{endereco.complemento}"
                            th:classappend="${#fields.hasErrors('endereco.complemento')} ? 'is-invalid'"/>
                     <div class="invalid-feedback">
                         <span th:errors="*{endereco.complemento}"></span>
@@ -150,16 +151,10 @@
                 </div>
             </div>
             <input type="hidden" id="id" th:field="*{id}"/>
-
-            <input type="hidden" id="endereco.id" th:field="*{endereco.id}"
-                   th:classappend="${#fields.hasErrors('endereco.id')} ? 'is-invalid'"/>
-            <div class="invalid-feedback">
-                <span th:errors="*{endereco.id}"></span>
-            </div>
+            <input type="hidden" id="endereco.id" th:field="*{endereco.id}"/>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
         </form>
     </div>
 </section>
-
 </body>
 </html>		
