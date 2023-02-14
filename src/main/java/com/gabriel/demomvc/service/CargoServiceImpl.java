@@ -2,6 +2,7 @@ package com.gabriel.demomvc.service;
 
 import com.gabriel.demomvc.dao.CargoDao;
 import com.gabriel.demomvc.domain.Cargo;
+import com.gabriel.demomvc.util.PaginacaoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,5 +46,9 @@ public class CargoServiceImpl implements CargoService{
             return false;
         }
         return true;
+    }
+    @Override
+    public PaginacaoUtil<Cargo> buscarPorPagina(int pagina) {
+        return dao.buscaPaginada(pagina);
     }
 }

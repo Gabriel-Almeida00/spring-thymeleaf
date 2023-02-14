@@ -18,7 +18,17 @@ public  class CargoDaoImpl extends AbstractDao<Cargo, Long> implements  CargoDao
                 .setFirstResult(inicio)
                 .setMaxResults(tamanho)
                 .getResultList();
+
+        long totalRegistros = count();
+        long totalDePaginas = (totalRegistros + (tamanho - 1 )) / tamanho;
+
         return new PaginacaoUtil<>(tamanho, pagina, totalDePaginas, cargos);
+    }
+
+    public Long count(){
+        return getEntityManager()
+                .createNamedQuery("select count(*) from Cargo", Long.class)
+                .getSingleResult();
     }
 
 }
